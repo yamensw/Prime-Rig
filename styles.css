@@ -156,7 +156,7 @@ img{max-width:100%; display:block}
 .nav-cta{
   display:none; /* keep clean: no duplicate CTA */
 }
-
+@media (max-width: 640px){ .navlinks{ display:none; } }
 @media (max-width: 820px){
   .navlinks{ gap:10px; font-size:14px; }
   /* Keep the wordmark readable on mobile */
