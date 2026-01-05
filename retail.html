@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Prime Rig — Retail Product WebAR</title>
+  <meta name="description" content="Retail-ready WebAR product showrooms: let customers explore products in 3D at true scale right in the browser—no app required." />
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://prime-rig.com/retail.html" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Prime Rig — Retail Product WebAR" />
+  <meta property="og:description" content="Interactive 3D product experiences in the browser. Embed on PDPs, kiosks, or sales links—no app install." />
+  <meta property="og:url" content="https://prime-rig.com/retail.html" />
+  <meta property="og:image" content="https://prime-rig.com/assets/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prime Rig — Retail WebAR" />
+  <meta name="twitter:description" content="Browser-based 3D product showrooms. No app required." />
+  <meta name="twitter:image" content="https://prime-rig.com/assets/og-image.jpg" />
+</head>
+
+<body>
+  <div class="bg-orb one" aria-hidden="true"></div>
+  <div class="bg-orb two" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="index.html#top" aria-label="Prime Rig home">
+          <img src="assets/logo.png" alt="Prime Rig" />
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <button class="menuBtn btn secondary" id="menuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false"><span>Menu</span></button>
+          <a href="index.html#showroom">Showroom</a>
+          <a href="index.html#industries">Industries</a>
+          <a href="index.html#packages">Packages</a>
+          <a href="index.html#about">About</a>
+          <a href="#demo">Request a Demo</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer menu (shown on small screens) -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="mobileMenuInner glass" role="dialog" aria-label="Navigation menu">
+      <a href="index.html#top">Home</a>
+      <a href="index.html#showroom">Showroom</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="index.html#about">About</a>
+      <a href="#demo">Request a Demo</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="glass heroCard reveal in">
+          <div class="heroMedia">
+            <video data-hero autoplay muted loop playsinline preload="metadata">
+              <source src="assets/prime-rig-hero-updated.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="heroInner">
+            <div class="kicker">RETAIL • PRODUCT PAGES • NO APP</div>
+            <h1 class="h1">Make product pages feel like a showroom.</h1>
+            <p class="lede">
+              Give customers a true-scale 3D view before they buy. Prime Rig experiences can live on PDPs, kiosks,
+              or inside a single shareable link your sales team can send instantly.
+            </p>
+
+            <div class="actions">
+              <button class="btn primary" type="button" onclick="document.querySelector('#ar-demo').scrollIntoView({behavior:'smooth'})">
+                <span>View the AR Demo</span>
+              </button>
+              <button class="btn secondary" type="button" onclick="document.querySelector('#demo').scrollIntoView({behavior:'smooth'})">
+                <span>Request a Demo</span>
+              </button>
+            </div>
+
+            <div class="metaNote">Best for: retail, consumer products, DTC brands, and sales enablement.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ar-demo">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Retail Demo</h2>
+          <p class="subhead">A product-style 3D viewer you can embed anywhere.</p>
+        </div>
+
+        <div class="glass card reveal">
+          <div class="tag">DEMO • PRODUCT / RETAIL</div>
+          <h3 style="margin:10px 0 6px; font-size:24px; letter-spacing:-.01em;">Tesla Product Showcase</h3>
+          <p>Let customers explore a product in 3D before buying. Great for PDP pages, kiosks, and sales teams sharing a single link during a call.</p>
+          <div class="iframeWrap" style="margin-top:16px; border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(0,0,0,.14); height:480px;">
+            <iframe
+              title="Tesla Product Showcase"
+              src="https://app.vectary.com/p/4DNdpRS2mFArWgAw4BcBkC"
+              frameborder="0"
+              width="100%"
+              height="100%"
+              loading="lazy"
+              allow="xr-spatial-tracking; fullscreen;"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="glass card reveal">
+          <div class="tag">Standards</div>
+          <p style="margin:0;">
+            <b>Performance-first:</b> optimized models, sensible texture sizes, and clean lighting.
+            <b>Embed-ready:</b> works on product pages, landing pages, and QR signage.
+            <b>Sales-friendly:</b> one link that works across devices.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAME Request a Demo section as the landing page -->
+    <section id="demo">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Request a Demo</h2>
+          <p class="subhead">Tell us what you want to showcase and we’ll draft a fast, clean showroom plan.</p>
+        </div>
+
+        <div class="glass reveal">
+          <!-- Formspree: sends submissions to your inbox -->
+          <form class="form" id="demoForm" action="https://formspree.io/f/xnjngoky" method="POST">
+            <input type="hidden" name="_subject" value="Prime Rig — Demo Request (Retail)" />
+            <input type="hidden" name="industry" value="Retail" />
+
+            <div class="formGrid">
+              <input class="field" name="name" placeholder="Your name" required />
+              <input class="field" name="company" placeholder="Company / brand" />
+            </div>
+            <input class="field" type="email" name="email" placeholder="Email" required />
+            <textarea class="field" name="message" placeholder="What do you want to showcase? (product, catalog, kiosk, AR ad…)" required></textarea>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+              <button class="btn primary" type="submit"><span>Send Request</span></button>
+            </div>
+
+            <div class="metaNote" id="formStatus" aria-live="polite">This form sends directly to our inbox. We typically reply within 1 business day.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="glass card">
+          <p style="margin:0;">
+            © <span id="year"></span> Prime Rig • contact@prime-rig.com
+            <span style="opacity:.75; margin:0 10px;">•</span>
+            <a href="assets/docs/prime-rig-privacy-policy.pdf" download>Privacy Policy (PDF)</a>
+            <span style="opacity:.75; margin:0 10px;">•</span>
+            <a href="assets/docs/prime-rig-terms-and-conditions.pdf" download>Terms (PDF)</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

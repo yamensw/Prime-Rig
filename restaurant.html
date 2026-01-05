@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Prime Rig — Restaurant WebAR Menu</title>
+  <meta name="description" content="Restaurant-ready WebAR menu experiences: show food at true scale in 3D, share via QR, and boost confident orders." />
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://prime-rig.com/restaurant.html" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Prime Rig — Restaurant WebAR Menu" />
+  <meta property="og:description" content="Show food and menu items in 3D at true scale using browser-based WebAR. No app required." />
+  <meta property="og:url" content="https://prime-rig.com/restaurant.html" />
+  <meta property="og:image" content="https://prime-rig.com/assets/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prime Rig — Restaurant WebAR" />
+  <meta name="twitter:description" content="QR-ready, browser-based 3D menu experiences. No app required." />
+  <meta name="twitter:image" content="https://prime-rig.com/assets/og-image.jpg" />
+</head>
+
+<body>
+  <div class="bg-orb one" aria-hidden="true"></div>
+  <div class="bg-orb two" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="index.html#top" aria-label="Prime Rig home">
+          <img src="assets/logo.png" alt="Prime Rig" />
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <button class="menuBtn btn secondary" id="menuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false"><span>Menu</span></button>
+          <a href="index.html#showroom">Showroom</a>
+          <a href="index.html#industries">Industries</a>
+          <a href="index.html#packages">Packages</a>
+          <a href="index.html#about">About</a>
+          <a href="#demo">Request a Demo</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer menu (shown on small screens) -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="mobileMenuInner glass" role="dialog" aria-label="Navigation menu">
+      <a href="index.html#showroom">Showroom</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="index.html#about">About</a>
+      <a href="#demo">Request a Demo</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="glass heroCard reveal in">
+          <div class="heroMedia">
+            <video data-hero autoplay muted loop playsinline preload="metadata">
+              <source src="assets/prime-rig-hero-updated.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="heroInner">
+            <div class="kicker">RESTAURANTS • MENU AR • QR READY</div>
+            <h1 class="h1">Let customers preview your menu in 3D at true scale.</h1>
+            <p class="lede">
+              Prime Rig helps restaurants turn menu items into browser-based WebAR experiences. Customers scan a QR code or tap a link,
+              then view the item at true size boosting confidence, reducing uncertainty, and making ordering feel premium.
+            </p>
+
+            <div class="actions">
+              <button class="btn primary" type="button" onclick="document.querySelector('#ar-demo').scrollIntoView({behavior:'smooth'})">
+                <span>View the AR Demo</span>
+              </button>
+              <button class="btn secondary" type="button" onclick="document.querySelector('#demo').scrollIntoView({behavior:'smooth'})">
+                <span>Request a Demo</span>
+              </button>
+              <a class="btn secondary" href="index.html#showroom"><span>Back to Showroom</span></a>
+            </div>
+
+            <div class="metaNote">Runs in the browser. No app install. Works best on modern iOS/Android devices.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ar-demo">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Restaurant Demo</h2>
+          <p class="subhead">A sample WebAR menu item embed you can place on a QR menu, website, or ordering page.</p>
+        </div>
+
+        <div class="glass card reveal">
+          <div class="tag">LIVE EMBED • MENU ITEM</div>
+          <h3 style="margin:10px 0 6px; font-size:24px; letter-spacing:-.01em;">AR Pizza — Menu Item Showcase</h3>
+          <p>Tap “AR” inside the viewer (on supported devices) to place it in your space.</p>
+          <div style="margin-top:14px; border-radius:22px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(0,0,0,.14); height:480px;">
+            <iframe src="https://app.vectary.com/p/1hJbR1qGLLweMdqTcF3uS2" frameborder="0" width="100%" height="480" allow="xr-spatial-tracking; fullscreen;" allowfullscreen loading="lazy" title="AR Pizza Demo"></iframe>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="glass card reveal">
+          <div class="tag">STANDARDS</div>
+          <p>
+            <b>Recommended publishing standards</b><br/>
+            • Keep models lightweight (mobile-first) and compressed<br/>
+            • Use consistent lighting and scale references (true size matters)<br/>
+            • Provide a QR + short link for tables, menus, and packaging<br/>
+            • Track clicks/opens to learn what customers engage with
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Request a Demo</h2>
+          <p class="subhead">Tell us what you want to showcase and we’ll draft a fast, clean showroom plan.</p>
+        </div>
+
+        <div class="glass reveal">
+          <form class="form" id="demoForm" action="https://formspree.io/f/xnjngoky" method="POST">
+            <input type="hidden" name="_subject" value="Prime Rig — Restaurant Demo Request" />
+            <input type="hidden" name="industry" value="Restaurant" />
+            <div class="formGrid">
+              <input class="field" name="name" placeholder="Your name" required />
+              <input class="field" name="company" placeholder="Company / restaurant" />
+            </div>
+            <input class="field" type="email" name="email" placeholder="Email" required />
+            <textarea class="field" name="message" placeholder="What do you want to showcase? (menu items, specials, catering, packaging...)" required></textarea>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+              <button class="btn primary" type="submit"><span>Send Request</span></button>
+              <a class="btn secondary" href="index.html#packages"><span>View Packages</span></a>
+            </div>
+
+            <div class="metaNote" id="formStatus" aria-live="polite">This form sends directly to our inbox. We typically reply within 1 business day.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="glass card">
+          <p style="margin:0;">
+            © <span id="year"></span> Prime Rig • contact@prime-rig.com
+            <span style="opacity:.75; margin:0 10px;">•</span>
+            <a href="assets/docs/prime-rig-privacy-policy.pdf" download>Privacy Policy (PDF)</a>
+            <span style="opacity:.75; margin:0 10px;">•</span>
+            <a href="assets/docs/prime-rig-terms-and-conditions.pdf" download>Terms (PDF)</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

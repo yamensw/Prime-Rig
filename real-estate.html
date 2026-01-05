@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Prime Rig — Real Estate Space & Scale WebAR</title>
+  <meta name="description" content="Real-estate WebAR experiences to communicate space, fit, and layout with confidence—right in the browser." />
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://prime-rig.com/real-estate.html" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Prime Rig — Real Estate Space & Scale WebAR" />
+  <meta property="og:description" content="Communicate scale and layout in AR: staging, renovations, new builds, and client collaboration—no app required." />
+  <meta property="og:url" content="https://prime-rig.com/real-estate.html" />
+  <meta property="og:image" content="https://prime-rig.com/assets/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prime Rig — Real Estate WebAR" />
+  <meta name="twitter:description" content="Space & scale in AR, directly in the browser." />
+  <meta name="twitter:image" content="https://prime-rig.com/assets/og-image.jpg" />
+</head>
+
+<body>
+  <div class="bg-orb one" aria-hidden="true"></div>
+  <div class="bg-orb two" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="index.html" aria-label="Prime Rig home">
+          <img src="assets/logo.png" alt="Prime Rig" />
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <button class="menuBtn btn secondary" id="menuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false"><span>Menu</span></button>
+          <a href="index.html#showroom">Showroom</a>
+          <a href="index.html#industries">Industries</a>
+          <a href="index.html#packages">Packages</a>
+          <a href="index.html#about">About</a>
+          <a href="#demo">Request a Demo</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer menu -->
+  <div class="mobileMenu" id="mobileMenu" aria-hidden="true">
+    <div class="mobileMenuInner glass" role="dialog" aria-label="Navigation menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#showroom">Showroom</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="index.html#about">About</a>
+      <a href="#demo">Request a Demo</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="glass heroCard reveal in">
+          <div class="heroMedia">
+            <video data-hero autoplay muted loop playsinline preload="metadata">
+              <source src="assets/prime-rig-hero-updated.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="heroInner">
+            <div class="kicker">REAL ESTATE • SPACE &amp; SCALE • NO APP</div>
+            <h1 class="h1">Communicate layout and fit — at true scale.</h1>
+            <p class="lede">
+              Prime Rig helps real-estate teams and builders share space in a way photos can’t: staging, renovations,
+              and new builds — demonstrated in the browser and ready to embed.
+            </p>
+
+            <div class="actions">
+              <button class="btn primary" type="button" onclick="document.querySelector('#ar-demo').scrollIntoView({behavior:'smooth'})">
+                <span>View AR Demo</span>
+              </button>
+              <button class="btn secondary" type="button" onclick="document.querySelector('#demo').scrollIntoView({behavior:'smooth'})">
+                <span>Request a Demo</span>
+              </button>
+              <a class="btn secondary" href="index.html" aria-label="Back to Prime Rig landing page"><span>Back to Home</span></a>
+            </div>
+
+            <div class="metaNote">Works across modern iOS + Android devices. Fast loads, premium presentation, and clean embeds.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ar-demo">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Space &amp; Scale Demo</h2>
+          <p class="subhead">A space-focused example showing how AR communicates fit and confidence.</p>
+        </div>
+
+        <div class="glass card reveal">
+          <div class="tag">DEMO • REAL ESTATE / SPACE</div>
+          <h3 style="margin:10px 0 6px; font-size:24px; letter-spacing:-.01em;">AR Space &amp; Scale</h3>
+          <p>Great for staging, renovations, and client walkthroughs — share a single link that demonstrates scale.</p>
+
+          <div style="margin-top:14px; border-radius:22px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(0,0,0,.14); height:480px;">
+            <iframe title="Space & Scale" src="https://app.vectary.com/viewer/v1/?model=e9937cd0-f99b-40b2-8313-058b89e11871&env=studio3" style="width:100%; height:100%; border:0;" loading="lazy" allow="fullscreen; xr-spatial-tracking; accelerometer; gyroscope; autoplay" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="standards">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Standards</h2>
+          <p class="subhead">Clear rules so every experience stays fast, consistent, and premium.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="glass card reveal">
+            <div class="tag">True Scale</div>
+            <p>Models are set to real-world dimensions to support confident decisions.</p>
+          </div>
+          <div class="glass card reveal">
+            <div class="tag">Fast Loads</div>
+            <p>Optimized assets and lightweight embeds—no heavy runtimes required.</p>
+          </div>
+          <div class="glass card reveal">
+            <div class="tag">Shareable</div>
+            <p>Send one link in a listing, email, or text and the experience just works.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request a Demo (same as landing page, with industry context) -->
+    <section id="demo">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 class="h2">Request a Demo</h2>
+          <p class="subhead">Tell us what you want to showcase and we’ll draft a fast, clean showroom plan.</p>
+        </div>
+
+        <div class="glass reveal">
+          <form class="form" id="demoForm" action="https://formspree.io/f/xnjngoky" method="POST">
+            <input type="hidden" name="_subject" value="Prime Rig — Demo Request (Real Estate)" />
+            <input type="hidden" name="industry" value="Real Estate" />
+
+            <div class="formGrid">
+              <input class="field" name="name" placeholder="Your name" required />
+              <input class="field" name="company" placeholder="Company / brand" />
+            </div>
+            <input class="field" type="email" name="email" placeholder="Email" required />
+            <textarea class="field" name="message" placeholder="What do you want to showcase? (layout, renovation, staging, new build…)" required></textarea>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+              <button class="btn primary" type="submit"><span>Send Request</span></button>
+            </div>
+
+            <div class="metaNote" id="formStatus" aria-live="polite">This form sends directly to our inbox. We typically reply within 1 business day.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="glass card">
+          <p style="margin:0;">
+            © <span id="year"></span> Prime Rig • contact@prime-rig.com
+            <span style="opacity:.75; margin:0 10px;">•</span>
+            <a href="assets/docs/prime-rig-privacy-policy.pdf" download>Privacy Policy (PDF)</a>
+            <span style="opacity:.75; margin:0 10px;">•</span>
+            <a href="assets/docs/prime-rig-terms-and-conditions.pdf" download>Terms (PDF)</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
