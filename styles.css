@@ -70,7 +70,6 @@ img{max-width:100%; display:block}
   -webkit-backdrop-filter: blur(var(--blur));
   position:relative;
   overflow:hidden;
-  transform-style: preserve-3d;
   transition: transform var(--duration-normal) var(--ease-out),
               box-shadow var(--duration-normal) var(--ease-out);
 }
@@ -453,29 +452,8 @@ section{ padding: 44px 0; }
 
 .glass.card:hover {
   animation: float 3s var(--ease) infinite;
+  transform: translateY(-8px);
   box-shadow: 0 24px 72px rgba(0,0,0,.32);
-}
-
-/* Subtle shadow depth */
-.glass.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    rgba(255,255,255,0.05) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity var(--duration-normal) var(--ease);
-}
-
-.glass.card:hover::after {
-  opacity: 1;
 }
 
 .card{
