@@ -167,4 +167,154 @@
 
   function pressEffect(e, btn) {
     // Ripple position
-    const rect = btn.getBoundingClientRect
+    const rect = btn.getBoundingClientRect();
+
+    let clientX = e.clientX;
+    let clientY = e.clientY;
+
+    if ((clientX == null || clientY == null) && e.touches && e.touches[0]) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    }
+
+    if (clientX == null || clientY == null) {
+      clientX = rect.left + rect.width / 2;
+      clientY = rect.top + rect.height / 2;
+    }
+
+    const x = clamp(clientX - rect.left, 0, rect.width);
+    const y = clamp(clientY - rect.top, 0, rect.height);
+
+    // Ripple
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    btn.appendChild(ripple);
+
+    ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+
+    // Sweep
+    btn.classList.remove('sweeping');
+    // force reflow so animation restarts reliably
+    void btn.offsetWidth;
+    btn.classList.add('sweeping');
+    window.setTimeout(() => btn.classList.remove('sweeping'), 420);
+
+    // Micro-bounce (handled by CSS :active too, but this makes it consistent on iOS)
+    btn.classList.add('pressed');
+    window.setTimeout(() => btn.classList.remove('pressed'), 140);
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('pointerdown', (e) => {
+      lastPointerDownAt = Date.now();
+      pressEffect(e, btn);
+    });
+
+    btn.addEventListener('touchstart', (e) => {
+      // If pointerdown fired recently, don't duplicate
+      if (Date.now() - lastPointerDownAt < 250) return;
+      pressEffect(e, btn);
+    }, { passive: true });
+  });
+
+  // ---------------------------
+  // Hero video: best-effort play
+  // ---------------------------
+  const heroVideo = document.querySelector('video[data-hero]');
+  if (heroVideo && !prefersReducedMotion) {
+    // Some browsers block autoplay; keep muted + playsInline for best odds
+    const tryPlay = () => {
+      const p = heroVideo.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    };
+    // Try immediately + after interaction
+    tryPlay();
+    window.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    window.addEventListener('click', tryPlay, { once: true });
+  }
+
+  // ---------------------------
+  // Staggered card animations
+  // ---------------------------
+  function initStaggeredCards() {
+    const cards = $$('.glass.card.reveal');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--i', index);
+      card.style.animationDelay = `${index * 100}ms`;
+    });
+  }
+
+  // ---------------------------
+  // Scroll progress indicator
+  // ---------------------------
+  function initScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    progressBar.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      z-index: 9999;
+      transition: width 100ms ease;
+    `;
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+  }
+
+  // ---------------------------
+  // Typing animation for hero text
+  // ---------------------------
+  function initTypewriter() {
+    const heroH1 = document.querySelector('.hero .h1');
+    if (!heroH1 || prefersReducedMotion) return;
+    
+    const text = heroH1.textContent;
+    heroH1.textContent = '';
+    
+    let i = 0;
+    const typeWriter = () => {
+      if (i < text.length) {
+        heroH1.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+      }
+    };
+    
+    // Start typing after 1 second
+    setTimeout(typeWriter, 1000);
+  }
+
+  // ---------------------------
+  // Initialize all animations
+  // ---------------------------
+  function initAnimations() {
+    if (!prefersReducedMotion) {
+      initStaggeredCards();
+      initScrollProgress();
+      
+      // Only run typewriter on homepage
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        initTypewriter();
+      }
+    }
+  }
+
+  // Call initialization after DOM loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimations);
+  } else {
+    initAnimations();
+  }
+
+})();
