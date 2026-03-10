@@ -4,6 +4,7 @@
    - Smooth scrolling for on-page anchors
    - Liquid-glass button press: sweep + ripple + micro-bounce
    - Enhanced animations (without tilt effect)
+   - Dropdown menu
 */
 
 (() => {
@@ -18,7 +19,7 @@
   // ---------------------------
   // Smooth scroll (only same-page hash links)
   // ---------------------------
-  $$('a[href^="#"]').forEach(a => {
+  $$('a[href^="#"]:not(.dropdown-item)').forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href') || '#';
       if (href === '#' || href.length < 2) return;
@@ -31,6 +32,9 @@
 
       // Close mobile menu if open
       closeMobileMenu();
+      
+      // Close dropdown if open
+      closeAllDropdowns();
 
       // Update URL hash without jumping
       history.pushState(null, '', href);
@@ -77,7 +81,10 @@
 
     // ESC closes
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMobileMenu();
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+        closeAllDropdowns();
+      }
     });
 
     // If user resizes to desktop, ensure menu is closed
@@ -296,6 +303,106 @@
   }
 
   // ---------------------------
+  // Dropdown Menu Functions
+  // ---------------------------
+  function initDropdownMenu() {
+    const dropdownTrigger = document.querySelector('.dropdown-trigger');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    if (!dropdownTrigger || !dropdownMenu) return;
+    
+    // Create overlay
+    let overlay = document.querySelector('.dropdown-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'dropdown-overlay';
+      document.body.appendChild(overlay);
+    }
+    
+    // Toggle dropdown on click
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const isOpen = dropdownMenu.classList.contains('show');
+      
+      if (isOpen) {
+        closeAllDropdowns();
+      } else {
+        closeAllDropdowns(); // Close any other open dropdowns
+        dropdownMenu.classList.add('show');
+        overlay.classList.add('show');
+        
+        // Add active class to trigger
+        dropdownTrigger.classList.add('active');
+      }
+    });
+    
+    // Close dropdown when clicking overlay
+    overlay.addEventListener('click', () => {
+      closeAllDropdowns();
+    });
+    
+    // Close dropdown on Escape key (already handled globally)
+    
+    // Handle dropdown item clicks
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = item.getAttribute('href');
+        
+        if (targetId && targetId !== '#') {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            closeAllDropdowns();
+            
+            // Smooth scroll to section
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            
+            // Update URL
+            history.pushState(null, '', targetId);
+          }
+        }
+        
+        // Close dropdown
+        closeAllDropdowns();
+      });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownTrigger.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        closeAllDropdowns();
+      }
+    });
+    
+    // Handle mobile dropdown
+    function handleMobileDropdown() {
+      if (window.innerWidth <= 720) {
+        // Mobile behavior is handled by CSS
+      }
+    }
+    
+    handleMobileDropdown();
+    window.addEventListener('resize', handleMobileDropdown);
+  }
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+      menu.classList.remove('show');
+    });
+    document.querySelectorAll('.dropdown-overlay.show').forEach(overlay => {
+      overlay.classList.remove('show');
+    });
+    document.querySelectorAll('.dropdown-trigger.active').forEach(trigger => {
+      trigger.classList.remove('active');
+    });
+  }
+
+  // ---------------------------
   // Initialize all animations
   // ---------------------------
   function initAnimations() {
@@ -312,9 +419,13 @@
 
   // Call initialization after DOM loads
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAnimations);
+    document.addEventListener('DOMContentLoaded', () => {
+      initAnimations();
+      initDropdownMenu();
+    });
   } else {
     initAnimations();
+    initDropdownMenu();
   }
 
 })();
