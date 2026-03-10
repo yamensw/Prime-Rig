@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -31,6 +30,7 @@
 <body>
 <div aria-hidden="true" class="bg-orb one"></div>
 <div aria-hidden="true" class="bg-orb two"></div>
+
 <header class="nav">
 <div class="wrap">
 <div class="bar">
@@ -42,19 +42,52 @@
 <a href="#showroom">Showroom</a>
 <a href="#industries">Industries</a>
 <a href="#packages">Packages</a>
-          <a href="#demo">Request a Demo</a>
+
+<!-- Dropdown Menu for About -->
+<div class="nav-item dropdown">
+  <span class="dropdown-trigger">
+    <span>About</span>
+    <span class="dropdown-arrow">▼</span>
+  </span>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#about">Founder</a>
+    <a class="dropdown-item" href="#origin">Origin Story</a>
+    <a class="dropdown-item" href="#mission">Mission</a>
+    <a class="dropdown-item" href="#vision">Vision</a>
+  </div>
+</div>
+
+<a href="#demo">Request a Demo</a>
 </nav>
 </div>
 </div>
 </header>
+
+<!-- Mobile menu with dropdown -->
 <div aria-hidden="true" class="mobileMenu" id="mobileMenu">
 <div aria-label="Navigation menu" class="mobileMenuInner glass" role="dialog">
 <a href="#showroom">Showroom</a>
 <a href="#industries">Industries</a>
 <a href="#packages">Packages</a>
-          <a href="#demo">Request a Demo</a>
+
+<!-- Dropdown in Mobile Menu -->
+<div class="nav-item dropdown">
+  <span class="dropdown-trigger">
+    <span>About</span>
+    <span class="dropdown-arrow">▼</span>
+  </span>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#about">Founder</a>
+    <a class="dropdown-item" href="#origin">Origin Story</a>
+    <a class="dropdown-item" href="#mission">Mission</a>
+    <a class="dropdown-item" href="#vision">Vision</a>
+  </div>
+</div>
+
+<a href="#demo">Request a Demo</a>
 </div>
 </div>
+
 <main id="top">
 <section class="hero">
 <div class="wrap">
@@ -85,6 +118,7 @@
 </div>
 </div>
 </section>
+
 <section id="showroom">
 <div class="wrap">
 <div class="sectionHead">
@@ -128,6 +162,7 @@
 </div>
 </div>
 </section>
+
 <section id="industries">
 <div class="wrap">
 <div class="sectionHead">
@@ -159,6 +194,7 @@
 </div>
 </div>
 </section>
+
 <section id="packages">
       <div class="wrap">
         <div class="sectionHead">
@@ -196,6 +232,8 @@
         </div>
       </div>
     </section>
+
+<!-- About (Founder) Section -->
 <section id="about">
 <div class="wrap">
 <div class="sectionHead">
@@ -226,6 +264,65 @@
 </div>
 </div>
 </section>
+
+<!-- New About Sub-sections -->
+<section id="origin" class="about-section">
+  <div class="wrap">
+    <div class="sectionHead">
+      <h2 class="h2">Origin Story</h2>
+      <p class="subhead">How Prime Rig came to be</p>
+    </div>
+    <div class="glass card about-content">
+      <div class="about-quote">
+        <p>AR has been around for nearly a decade in social platforms like Snapchat and Meta experiences, and it’s been adopted by top retailers and consumer tech brands. Prime Rig focuses on the missing piece: bringing that same interaction into practical business applications—menus, product pages, sales enablement, and real-estate visualization—without requiring an app install.</p>
+        <cite>— Yamen Seanwan, Founder</cite>
+      </div>
+      <p style="color: rgba(255,255,255,.78); line-height: 1.7;">Prime Rig started from a simple problem: businesses had access to incredible AR capabilities, but no practical way to deploy them fast, consistently, and beautifully. We built Prime Rig to productize WebAR—using proven platforms and best practices—so companies can launch showrooms that feel premium, load quickly, and work across modern devices.</p>
+    </div>
+  </div>
+</section>
+
+<section id="mission" class="about-section">
+  <div class="wrap">
+    <div class="sectionHead">
+      <h2 class="h2">Our Mission</h2>
+      <p class="subhead">Democratizing AR for business</p>
+    </div>
+    <div class="about-grid">
+      <div class="glass card about-card">
+        <span class="about-icon">🎯</span>
+        <h3>Accessibility</h3>
+        <p>Make AR technology accessible to businesses of all sizes without complex setup or expensive development.</p>
+      </div>
+      <div class="glass card about-card">
+        <span class="about-icon">⚡</span>
+        <h3>Performance</h3>
+        <p>Deliver fast, lightweight experiences that work seamlessly across all modern devices and browsers.</p>
+      </div>
+      <div class="glass card about-card">
+        <span class="about-icon">🎨</span>
+        <h3>Premium Quality</h3>
+        <p>Ensure every showroom looks beautiful and professional, representing brands at their best.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vision" class="about-section">
+  <div class="wrap">
+    <div class="sectionHead">
+      <h2 class="h2">Our Vision</h2>
+      <p class="subhead">The future of business interaction</p>
+    </div>
+    <div class="glass card">
+      <p style="color: rgba(255,255,255,.78); line-height: 1.7; font-size: 18px;">We envision a world where every product, space, and menu can be experienced in AR before purchase—reducing uncertainty, increasing confidence, and creating deeper connections between businesses and their customers.</p>
+      <div style="margin-top: 20px; padding: 20px; background: rgba(255,255,255,.06); border-radius: 18px;">
+        <p style="margin: 0; color: rgba(255,255,255,.9);"><strong>By 2026</strong>, we aim to power AR experiences for over 1,000 businesses across retail, hospitality, and real estate sectors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="demo">
 <div class="wrap">
 <div class="sectionHead">
@@ -249,6 +346,7 @@
 </div>
 </div>
 </section>
+
 <footer class="footer">
 <div class="wrap">
 <div class="glass card">
@@ -263,6 +361,7 @@
 </div>
 </footer>
 </main>
+
 <script src="script.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
