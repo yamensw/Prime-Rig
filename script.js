@@ -343,8 +343,6 @@
       closeAllDropdowns();
     });
     
-    // Close dropdown on Escape key (already handled globally)
-    
     // Handle dropdown item clicks
     document.querySelectorAll('.dropdown-item').forEach(item => {
       item.addEventListener('click', (e) => {
@@ -356,7 +354,7 @@
           if (targetElement) {
             closeAllDropdowns();
             
-            // Smooth scroll to section
+            // Smooth scroll to target
             targetElement.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
@@ -364,6 +362,9 @@
             
             // Update URL
             history.pushState(null, '', targetId);
+          } else {
+            // It's an external link (like about-founder.html) – let it navigate
+            window.location.href = targetId;
           }
         }
         
